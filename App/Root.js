@@ -1,5 +1,5 @@
 
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
   AppRegistry,
   StyleSheet,
@@ -7,14 +7,18 @@ import {
   View,
   TouchableOpacity,
   Dimensions
-} from 'react-native';
+} from 'react-native'
 
 const { width } = Dimensions.get('window')
 
-export default class Root extends Component {
+import { wrap } from 'tictail-tide'
+
+class Root extends Component {
+
   render () {
+    console.log('PROPS', this.props)
     return <View style={styles.container}>
-      <Text style={styles.num}>HEJ HEJ</Text>
+      <Text style={styles.num}>CLICKER HERE</Text>
 
       <TouchableOpacity style={styles.btn} onPress={() => console.log('onPress')}>
         <Text>PUSH ME BABY</Text>
@@ -22,6 +26,8 @@ export default class Root extends Component {
     </View>
   }
 }
+
+export default wrap(Root, {value: 'clicker'})
 
 const styles = StyleSheet.create({
   container: {
